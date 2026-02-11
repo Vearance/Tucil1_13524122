@@ -26,6 +26,12 @@ func main() {
 	// start var to count duration
 	startTime := time.Now()
 
+	// validation
+	if !board.IsValid() {
+		fmt.Println("Board tidak valid.")
+		return
+	}
+
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
 
