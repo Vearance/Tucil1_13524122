@@ -58,4 +58,15 @@ func saveBoard(b *Board, filename string) error {
 	return nil
 }
 
-func printBoard(b *Board)
+func printBoard(b *Board) {
+	for i := 0; i < b.size; i++ {
+		for j := 0; j < b.size; j++ {
+			if b.queen[i][j] {
+				fmt.Printf("#")
+			} else {
+				fmt.Printf(string(b.color[i][j]))
+			}
+		}
+		fmt.Println()
+	}
+}
