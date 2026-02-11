@@ -22,6 +22,19 @@ func newBoard(colorMatrix [][]rune) *Board {
 }
 
 func (b *Board) isValid() bool   // every color must appear once, number of color == board size/length
-func (b *Board) isPlaceable(row, col int)
-func (b *Board) addQueen(row, col int)
-func (b *Board) rmvQueen(row, col int)
+
+func (b *Board) isPlaceable(row, col int) bool {
+	if b.queen[row][col] == true {
+		return false
+	}
+
+	return true
+}
+
+func (b *Board) addQueen(row, col int) {
+	b.queen[row][col] = true
+}
+
+func (b *Board) rmvQueen(row, col int) {
+	b.queen[row][col] = false
+}
