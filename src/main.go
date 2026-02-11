@@ -13,7 +13,7 @@ func main() {
 	fmt.Print("Input nama file (no whitespace): ")
 	fmt.Scan(&filename)
 
-	// construct board
+	// construct board and read file
 	board, err := // constructBoard function (param filename)
 	if err != nil {
 		fmt.Println("Error: ", err)
@@ -27,8 +27,11 @@ func main() {
 	startTime := time.Now()
 
 	// do solve
-	// bruteforceSolve function (param board from input and counrer)
+	// bruteforceSolve function (param board from input and counter)
 
 	duration := time.Since(startTime).Milliseconds()
+
+
+	// save function optional
 
 }
