@@ -31,6 +31,31 @@ func constructBoard(filename string) (*Board, error) {
 	return newBoard(colorMatrix), nil
 }
 
-func saveBoard(b *Board, filename string) error
+func saveBoard(b *Board, filename string) error {
+	file, err := os.Create(filename) // if it exists, it will be replaced
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	var char int
+
+	for i := 0; i < b.size; i++ {
+		for j:= 0; j < b.size; j++ {
+			if b.queen[i][j] {
+				char, err = file.WriteString("#")
+			} else {
+				char, err = file.WriteString(string(b.color[i][j]))
+			}
+		}
+
+		char, err = file.WriteString("\n")
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
 
 func printBoard(b *Board)
