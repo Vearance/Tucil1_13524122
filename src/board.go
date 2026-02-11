@@ -1,5 +1,7 @@
 package main
 
+import "unique"
+
 type Board struct {
     size int
     color [][]rune
@@ -21,7 +23,23 @@ func newBoard(colorMatrix [][]rune) *Board {
 	}
 }
 
-func (b *Board) isValid() bool   // every color must appear once, number of color == board size/length
+func (b *Board) isValid() bool {  // every color must appear once, number of color == board size/length
+	// check unique colors
+	unique := make(map[rune]bool)
+	for i:=0; i < b.size; i++ {
+		for j:=0; j < b.size; j++ {
+			unique[b.color[i][j]] = true
+		}
+	}
+	count := len(unique)
+
+	if count == b.size {
+		return true
+	} else {
+		return false
+	}
+
+}
 
 func (b *Board) isPlaceable(row, col int) bool {
 	if b.queen[row][col] == true {
