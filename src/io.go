@@ -20,7 +20,6 @@ func constructBoard(filename string) (*Board, error) {
 
 	for scanner.Scan() {
 		line := scanner.Text() // current line as string
-		fmt.Println(line) // TODO: change this to put into board
 		row := []rune(line) // take this row line to a char array and put it into matrix
 		colorMatrix = append(colorMatrix, row)
 	}
