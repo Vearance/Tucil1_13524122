@@ -38,18 +38,16 @@ func saveBoard(b *Board, filename string) error {
 	}
 	defer file.Close()
 
-	var char int
-
 	for i := 0; i < b.size; i++ {
 		for j:= 0; j < b.size; j++ {
 			if b.queen[i][j] {
-				char, err = file.WriteString("#")
+				_, err = file.WriteString("#")
 			} else {
-				char, err = file.WriteString(string(b.color[i][j]))
+				_, err = file.WriteString(string(b.color[i][j]))
 			}
 		}
 
-		char, err = file.WriteString("\n")
+		_, err = file.WriteString("\n")
 		if err != nil {
 			return err
 		}

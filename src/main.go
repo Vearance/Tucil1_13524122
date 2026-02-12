@@ -35,8 +35,10 @@ func main() {
 
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
+	Solve(board, &counter)
 
 	duration := time.Since(startTime).Milliseconds()
+	fmt.Println(duration)
 
 
 	// save function optional
