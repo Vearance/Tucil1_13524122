@@ -10,11 +10,12 @@ func main() {
 
 	// input file name
 	var filename string
-	fmt.Print("Input nama file (no whitespace): ")
+	fmt.Print("Input nama file (no whitespace, put inside test/ folder): ")
 	fmt.Scan(&filename)
 
 	// construct board and read file
-	board, err := constructBoard(filename) // constructBoard function (param filename)
+	filepath := "../test/" + filename  //TODO: ask if the test folder is used in 
+	board, err := constructBoard(filepath) // constructBoard function (param filename)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
