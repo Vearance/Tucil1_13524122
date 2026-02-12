@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func Solve(b *Board, counter *int) bool {
 	row := 0;
 	rowPlaced := make([]int, b.size)
@@ -13,6 +15,7 @@ func Solve(b *Board, counter *int) bool {
 		
 		for i:=0; i < b.size; i++ {
 			(*counter)++
+			fmt.Println(*counter)
 
 			if b.isPlaceable(row, i) {
 				b.addQueen(row, i)
@@ -27,15 +30,15 @@ func Solve(b *Board, counter *int) bool {
 		}
 
 		if !placedOnThisRow {
-			row = row - 1
-
-			if row >= 0 {
-				b.rmvQueen(row, rowPlaced[row])
+			if row > 0 {
+				b.rmvQueen(row, rowPlaced[row-1])
 				rowPlaced[row] = -1  // say the queen does not exist again
 			}
+
+			row = row - 1
 		}
 
-		if b.queenCount() == b.size {
+		if row == b.size {
 			return true
 		}
 
