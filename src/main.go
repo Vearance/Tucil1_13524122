@@ -40,8 +40,8 @@ func main() {
 
 	duration := time.Since(startTime)
 	
-	fmt.Printf("Duration (milliseconds): %.3f\n", float64(duration.Microseconds())/1000.0)
-	fmt.Printf("Counter: %d\n", counter)
+	fmt.Printf("Waktu pencarian: %.3f ms\n", float64(duration.Microseconds())/1000.0)
+	fmt.Println("Banyak kasus yang ditinjau", counter)
 
 
 	// save function optional
@@ -49,8 +49,9 @@ func main() {
 	fmt.Println("Apakah Anda ingin menyimpan solusi? (Y/N)")
 	fmt.Scan(&save)
 
+	filepath = "../test/solution/" + filename
 	if save == "Y" {
-		saveBoard(board, filename)
+		saveBoard(board, filepath)
 	}
 	
 
