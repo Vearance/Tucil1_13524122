@@ -77,7 +77,7 @@ func (b *Board) isPlaceable(row, col int) bool {
 	sides := [8][2]int {
 		{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1},
 	}
-	//TODO: implement sides blocking
+
 	for _, val := range sides {
 		// validate index
 		newRow := row + val[0]

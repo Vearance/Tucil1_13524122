@@ -46,4 +46,6 @@ func main() {
 
 	// save function optional
 
+	//TODO: add UI / board changing
+
 }
