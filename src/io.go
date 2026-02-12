@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
+	"time"
 )
 
 func constructBoard(filename string) (*Board, error) {
@@ -67,4 +68,25 @@ func printBoard(b *Board) {
 		}
 		fmt.Println()
 	}
+}
+
+func liveBoard(b *Board) {
+	clearScreen()
+
+	for i := 0; i < b.size; i++ {
+		for j := 0; j < b.size; j++ {
+			if b.queen[i][j] {
+				fmt.Printf("#")
+			} else {
+				fmt.Print(string(b.color[i][j]))
+			}
+		}
+		fmt.Println()
+	}
+
+	time.Sleep(100 * time.Millisecond)
+}
+
+func clearScreen() {
+    fmt.Print("\033[H\033[2J")
 }
