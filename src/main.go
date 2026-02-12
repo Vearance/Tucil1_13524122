@@ -40,6 +40,7 @@ func main() {
 
 	duration := time.Since(startTime).Milliseconds()
 	fmt.Println(duration)
+	fmt.Println(counter)
 
 
 	// save function optional
