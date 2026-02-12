@@ -1,7 +1,5 @@
 package main
 
-import "unique"
-
 type Board struct {
     size int
     color [][]rune
@@ -60,6 +58,27 @@ func (b *Board) isPlaceable(row, col int) bool {
 	if b.queen[row][col] == true {
 		return false
 	}
+
+	// one per row
+	for i:=0; i < b.size; i++ {
+		if b.queen[row][i] == true {
+			return false
+		}
+	}
+
+	// one per col
+	for j:=0; j < b.size; j++ {
+		if b.queen[j][col] == true {
+			return false
+		}
+	}
+
+	// cant be right beside each other, including diagonal
+	sides := [8][2]int {
+		{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1},
+	}
+	//TODO: implement sides blocking
+
 
 	return true
 }

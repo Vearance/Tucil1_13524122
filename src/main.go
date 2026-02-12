@@ -14,7 +14,7 @@ func main() {
 	fmt.Scan(&filename)
 
 	// construct board and read file
-	board, err := // constructBoard function (param filename)
+	board, err := constructBoard(filename) // constructBoard function (param filename)
 	if err != nil {
 		fmt.Println("Error: ", err)
 		return
@@ -23,14 +23,15 @@ func main() {
 	// initialized counter var
 	var counter int
 
-	// start var to count duration
-	startTime := time.Now()
-
 	// validation
-	if !board.IsValid() {
+	if !board.isValid() {
 		fmt.Println("Board tidak valid.")
 		return
 	}
+
+	// start var to count duration
+	startTime := time.Now()
+	
 
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
