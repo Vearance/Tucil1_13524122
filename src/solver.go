@@ -10,8 +10,16 @@ func Solve(b *Board, counter *int) bool {
 
 	for row >= 0 {  // while syntax in Go
 		var placedOnThisRow bool
+		startCol := 0
 		
-		for i:=0; i < b.size; i++ {
+		// start after the row that was implemented
+		if rowPlaced[row] != -1 { // implemented
+			startCol = rowPlaced[row] + 1
+			b.rmvQueen(row, rowPlaced[row])
+			liveBoard(b)
+		}
+		
+		for i:=startCol; i < b.size; i++ {
 			(*counter)++
 
 			if b.isPlaceable(row, i) {
@@ -29,12 +37,7 @@ func Solve(b *Board, counter *int) bool {
 		}
 
 		if !placedOnThisRow {
-			if row > 0 {
-				b.rmvQueen(row, rowPlaced[row-1])
-				liveBoard(b)
-				rowPlaced[row] = -1  // say the queen does not exist again
-			}
-
+			rowPlaced[row] = -1  // say the queen does not exist again
 			row = row - 1
 		}
 
