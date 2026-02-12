@@ -90,6 +90,15 @@ func (b *Board) isPlaceable(row, col int) bool {
 		}
 	}
 
+	// no two queens can be on the same color
+	currentColor := b.color[row][col]
+	for i:=0; i < b.size; i++ {
+		for j:=0; j < b.size; j++ {
+			if b.queen[i][j] == true && b.color[i][j] == currentColor {
+				return false
+			}
+		}
+	}
 
 	return true
 }

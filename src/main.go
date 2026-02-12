@@ -45,6 +45,14 @@ func main() {
 
 
 	// save function optional
+	var save string
+	fmt.Println("Apakah Anda ingin menyimpan solusi? (Y/N)")
+	fmt.Scan(&save)
+
+	if save == "Y" {
+		saveBoard(board, filename)
+	}
+	
 
 	//TODO: add UI / board changing
 
