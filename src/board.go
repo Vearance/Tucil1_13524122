@@ -74,10 +74,21 @@ func (b *Board) isPlaceable(row, col int) bool {
 	}
 
 	// cant be right beside each other, including diagonal
-	// sides := [8][2]int {
-	// 	{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1},
-	// }
+	sides := [8][2]int {
+		{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1},
+	}
 	//TODO: implement sides blocking
+	for _, val := range sides {
+		// validate index
+		newRow := row + val[0]
+		newCol := col + val[1]
+
+		if newRow >= 0 && newCol >= 0 && newRow < b.size && newCol < b.size {
+			if b.queen[newRow][newCol] == true {
+				return false
+			}
+		}
+	}
 
 
 	return true
