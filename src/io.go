@@ -62,7 +62,7 @@ func printBoard(b *Board) {
 			if b.queen[i][j] {
 				fmt.Printf("#")
 			} else {
-				fmt.Printf(string(b.color[i][j]))
+				fmt.Print(string(b.color[i][j]))
 			}
 		}
 		fmt.Println()
