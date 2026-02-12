@@ -90,3 +90,16 @@ func (b *Board) addQueen(row, col int) {
 func (b *Board) rmvQueen(row, col int) {
 	b.queen[row][col] = false
 }
+
+func (b *Board) queenCount() int {
+	res := 0
+	for i:=0; i < b.size; i++ {
+		for j:=0; j < b.size; j++ {
+			if b.queen[i][j] == true {
+				res = res + 1
+			}
+		}
+	}
+
+	return res
+}
