@@ -84,7 +84,7 @@ func liveBoard(b *Board) {
 		fmt.Println()
 	}
 
-	time.Sleep(100 * time.Millisecond)
+	time.Sleep(1 * time.Millisecond)
 }
 
 func clearScreen() {
