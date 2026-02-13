@@ -27,6 +27,17 @@ func (b *Board) isValid() bool {  // every color must appear once, number of col
 		return false
 	}
 
+	// if not square return false
+	if len(b.color) != b.size {
+		return false
+	}
+
+	for k:=0; k < b.size; k++ {
+		if len(b.color[k]) != b.size {
+			return false
+		}
+	}
+
 	// check unique colors
 	unique := make(map[rune]bool)
 	for i:=0; i < b.size; i++ {
@@ -38,17 +49,6 @@ func (b *Board) isValid() bool {  // every color must appear once, number of col
 
 	if count == b.size {
 		return true
-	}
-
-	// if not square return false
-	if len(b.color) != b.size {
-		return false
-	}
-
-	for k:=0; k < b.size; k++ {
-		if len(b.color[k]) != b.size {
-			return false
-		}
 	}
 
 	return true
