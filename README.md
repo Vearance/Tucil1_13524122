@@ -1,4 +1,4 @@
-o# Tugas Kecil 1 Stima
+# Tugas Kecil 1 Stima
 
 
 Algoritma penyelesaian permainan Queens dengan menggunakan algoritma brute-force, ditulis dalam Go. Permainan Queens dimainkan pada sebuah papan berukuran N x N yang terdiri dari N warna berbeda.
