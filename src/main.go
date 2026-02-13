@@ -40,7 +40,7 @@ func main() {
 
 	duration := time.Since(startTime)
 
-	fmt.Println()
+	clearScreen()
 	if found {
 		printBoard(board)
 	} else {
