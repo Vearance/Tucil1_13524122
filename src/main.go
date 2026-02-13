@@ -46,7 +46,7 @@ func main() {
 
 	// save function optional
 	var save string
-	fmt.Println("Apakah Anda ingin menyimpan solusi? (Y/N)")
+	fmt.Print("Apakah Anda ingin menyimpan solusi? (Y/N): ")
 	fmt.Scan(&save)
 
 	filepath = "../test/solution/" + filename
