@@ -16,7 +16,7 @@ func Solve(b *Board, counter *int) bool {
 		if rowPlaced[row] != -1 { // implemented
 			startCol = rowPlaced[row] + 1
 			b.rmvQueen(row, rowPlaced[row])
-			liveBoard(b)
+			liveBoard(b, *counter)
 		}
 		
 		for i:=startCol; i < b.size; i++ {
@@ -26,7 +26,7 @@ func Solve(b *Board, counter *int) bool {
 				b.addQueen(row, i)
 				rowPlaced[row] = i  // save Queen's column number on that row 
 
-				liveBoard(b)
+				liveBoard(b, *counter)
 
 				row = row + 1
 				placedOnThisRow = true
