@@ -14,7 +14,7 @@ func main() {
 	fmt.Scan(&filename)
 
 	// construct board and read file
-	filepath := "../test/" + filename  //TODO: ask if the test folder is used in 
+	filepath := "../test/" + filename
 	board, err := constructBoard(filepath) // constructBoard function (param filename)
 	if err != nil {
 		fmt.Println("Error: ", err)
@@ -36,10 +36,18 @@ func main() {
 
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
-	Solve(board, &counter)
+	found := Solve(board, &counter)
 
 	duration := time.Since(startTime)
+
+	fmt.Println()
+	if found {
+		printBoard(board)
+	} else {
+		fmt.Println("Tidak ada solusi yang ditemukan.")
+	}
 	
+	fmt.Println()
 	fmt.Printf("Waktu pencarian: %.3f ms\n", float64(duration.Microseconds())/1000.0)
 	fmt.Println("Banyak kasus yang ditinjau:", counter)
 
@@ -58,8 +66,4 @@ func main() {
 			fmt.Println("File berhasil disimpan di:", filepath)
 		}
 	}
-	
-
-	//TODO: add UI / board changing
-
 }
