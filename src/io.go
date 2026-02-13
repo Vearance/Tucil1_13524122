@@ -70,7 +70,11 @@ func printBoard(b *Board) {
 	}
 }
 
-func liveBoard(b *Board) {
+func liveBoard(b *Board, counter int) {
+	if counter%100 != 0 {
+		return
+	}
+
 	clearScreen()
 
 	for i := 0; i < b.size; i++ {
@@ -84,7 +88,7 @@ func liveBoard(b *Board) {
 		fmt.Println()
 	}
 
-	time.Sleep(1 * time.Millisecond)
+	time.Sleep(100 * time.Millisecond)
 }
 
 func clearScreen() {
