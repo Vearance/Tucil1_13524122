@@ -41,7 +41,7 @@ func main() {
 	duration := time.Since(startTime)
 	
 	fmt.Printf("Waktu pencarian: %.3f ms\n", float64(duration.Microseconds())/1000.0)
-	fmt.Println("Banyak kasus yang ditinjau", counter)
+	fmt.Println("Banyak kasus yang ditinjau:", counter)
 
 
 	// save function optional
@@ -51,7 +51,12 @@ func main() {
 
 	filepath = "../test/solution/" + filename
 	if save == "Y" {
-		saveBoard(board, filepath)
+		err := saveBoard(board, filepath)
+		if err != nil {
+			fmt.Println("Error:", err)
+		} else {
+			fmt.Println("File berhasil disimpan di:", filepath)
+		}
 	}
 	
 
