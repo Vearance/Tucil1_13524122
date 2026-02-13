@@ -1,4 +1,4 @@
-# Tugas Kecil 1 Stima
+o# Tugas Kecil 1 Stima
 
 
 Algoritma penyelesaian permainan Queens dengan menggunakan algoritma brute-force, ditulis dalam Go. Permainan Queens dimainkan pada sebuah papan berukuran N x N yang terdiri dari N warna berbeda.
@@ -81,4 +81,4 @@ Di file output, queen yang berhasil ditempatkan ditandai dengan karakter `#`.
 |---|---|
 | 13524122 | Nathaniel Christian |
 
-_Disclaimer: Baru belajar bahasa Golang, jadi kalau ada struktur/convention yang kurang mohon dimaklumi :D._
+_Disclaimer: Baru belajar Golang, jadi kalau ada struktur/convention yang kurang mohon dimaklumi :D._
