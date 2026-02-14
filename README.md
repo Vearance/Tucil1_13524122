@@ -49,9 +49,15 @@ cd bin
    Input nama file (no whitespace, put inside test/ folder): case-1.txt
    ```
 
-2. Program akan menampilkan proses pencarian di terminal, kemudian menampilkan waktu pencarian dan jumlah kasus yang ditinjau.
+2. Pilih algoritma mana yang ingin digunakan. Apabila ingin menggunakan pure brute force (exhaustive), input `1`. Sebaliknya apabila ingin menggunakan brute force efisien dengan backtracking, input `2`.
 
-3. Program akan menanyakan apakah solusi ingin disimpan ke file:
+   ```
+   Pakai algoritma exhaustive (1) atau backtracking (2)? Input 1 atau 2: 2
+   ```
+
+3. Program akan menampilkan proses pencarian di terminal, kemudian menampilkan waktu pencarian dan jumlah kasus yang ditinjau.
+
+4. Program akan menanyakan apakah solusi ingin disimpan ke file:
    ```
    Apakah Anda ingin menyimpan solusi? (Y/N): Y
    ```
