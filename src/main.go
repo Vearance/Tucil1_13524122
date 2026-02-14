@@ -30,9 +30,6 @@ func main() {
 		return
 	}
 
-	// start var to count duration
-	startTime := time.Now()
-	
 
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
@@ -41,6 +38,10 @@ func main() {
 	fmt.Scan(&useAlgo)
 
 	var found bool
+
+	// start var to count duration
+	startTime := time.Now()
+
 	if useAlgo == "1" {
 		found = Solve(board, &counter)
 	} else {
