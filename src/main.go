@@ -36,7 +36,16 @@ func main() {
 
 	// do solve
 	// bruteforceSolve function (param board from input and counter)
-	found := Solve(board, &counter)
+	var useAlgo string
+	fmt.Print("Pakai algoritma exhaustive (1) atau backtracking (2)? Input 1 atau 2: ")
+	fmt.Scan(&useAlgo)
+
+	var found bool
+	if useAlgo == "1" {
+		found = Solve(board, &counter)
+	} else {
+		found = SolveEffective(board, &counter)
+	}
 
 	duration := time.Since(startTime)
 
