@@ -1,6 +1,67 @@
 package main
 
+//exhaustive solution
 func Solve(b *Board, counter *int) bool {
+	rowPlaced := make([]int, b.size)
+
+	for {
+		(*counter)++
+
+		// clear all queens
+		for i := 0; i < b.size; i++ {
+			for j := 0; j < b.size; j++ {
+				if b.queen[i][j] {
+					b.rmvQueen(i, j)
+				}
+			}
+		}
+
+		valid := true
+		for row := 0; row < b.size; row++ {
+			col := rowPlaced[row]
+			if b.isPlaceable(row, col) {
+				b.addQueen(row, col)
+			} else {
+				valid = false
+				break
+			}
+		}
+
+		liveBoard(b, *counter)
+
+		//if all queens were successfully placed, we found a solution
+		if valid {
+			return true
+		}
+
+		carry := true
+		for row := b.size - 1; row >= 0 && carry; row-- {
+			rowPlaced[row]++
+			if rowPlaced[row] < b.size {
+				carry = false
+			} else {
+				rowPlaced[row] = 0
+			}
+		}
+
+		// If carry is still true, we've exhausted all n^n combinations
+		if carry {
+			break
+		}
+	}
+
+	// no solution found
+	for i := 0; i < b.size; i++ {
+		for j := 0; j < b.size; j++ {
+			if b.queen[i][j] {
+				b.rmvQueen(i, j)
+			}
+		}
+	}
+	return false
+}
+
+func SolveEffective(b *Board, counter *int) bool {
 	row := 0;
 	rowPlaced := make([]int, b.size)
 
